@@ -1,0 +1,112 @@
+% **************************************************************************************************************
+\RequirePackage{silence} % :-\
+    \WarningFilter{scrreprt}{Usage of package `titlesec'}
+    %\WarningFilter{scrreprt}{Activating an ugly workaround}
+    \WarningFilter{titlesec}{Non standard sectioning command detected}
+\documentclass[ twoside,openright,titlepage,numbers=noenddot,%1headlines,
+                headinclude,footinclude,cleardoublepage=empty,abstract=on,
+                BCOR=5mm,paper=a5,fontsize=11pt
+                ]{scrreprt}
+% \documentclass[11pt,paper=a5,footinclude,headinclude]{scrbook} % KOMA-Script book
+
+%********************************************************************
+% Note: Make all your adjustments in here
+%*******************************************************
+% \input{classicthesis-config}
+\input{preamble/general}
+
+% \usepackage[T1]{fontenc}
+\usepackage{lipsum}
+% \usepackage[english]{babel}
+% \usepackage[parts=false]{./classicthesis/classicthesis} % ,manychapters
+%\usepackage[osf]{libertine}
+
+%********************************************************************
+% Bibliographies
+%*******************************************************
+\addbibresource{Bibliography.bib}
+\addbibresource[label=ownpubs]{AMiede_Publications.bib}
+
+%********************************************************************
+% Hyphenation
+%*******************************************************
+%\hyphenation{put special hyphenation here}
+
+% ********************************************************************
+% GO!GO!GO! MOVE IT!
+%*******************************************************
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{american} % american ngerman
+%\renewcommand*{\bibname}{new name}
+%\setbibpreamble{}
+\pagenumbering{roman}
+% \pagestyle{plain}
+\pagestyle{scrplain}
+%********************************************************************
+% Frontmatter
+%*******************************************************
+% \include{FrontBackmatter/DirtyTitlepage}
+% \include{FrontBackmatter/Titlepage}
+% \include{FrontBackmatter/Titleback}
+% \cleardoublepage\include{FrontBackmatter/Dedication}
+% %\cleardoublepage\include{FrontBackmatter/Foreword}
+% \cleardoublepage\include{FrontBackmatter/Abstract}
+% \cleardoublepage\include{FrontBackmatter/Publications}
+% \cleardoublepage\include{FrontBackmatter/Acknowledgments}
+% \cleardoublepage\include{FrontBackmatter/Contents}
+\include{frontbackmatter/dirtytitlepage}
+\include{frontbackmatter/titlepage}
+\include{frontbackmatter/titleback}
+\cleardoublepage\include{frontbackmatter/dedication}
+\cleardoublepage\include{frontbackmatter/abstract}
+\cleardoublepage\include{frontbackmatter/acknowledgments}
+\pagestyle{scrheadings}
+\cleardoublepage\include{frontbackmatter/contents}
+
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\cleardoublepage
+\pagestyle{scrheadings}
+\pagenumbering{arabic}
+%\setcounter{page}{90}
+% use \cleardoublepage here to avoid problems with pdfbookmark
+\cleardoublepage
+\include{chapters/introduction/main}
+
+% \part{Some Kind of Manual}\label{pt:manual}
+% \include{Chapters/Chapter01}
+% \cleardoublepage
+% \ctparttext{You can put some informational part preamble text here.
+% Illo principalmente su nos. Non message \emph{occidental} angloromanic
+% da. Debitas effortio simplificate sia se, auxiliar summarios da que,
+% se avantiate publicationes via. Pan in terra summarios, capital
+% interlingua se que. Al via multo esser specimen, campo responder que
+% da. Le usate medical addresses pro, europa origine sanctificate nos se.}
+% \part{The Showcase}\label{pt:showcase}
+% \include{Chapters/Chapter02}
+% %\addtocontents{toc}{\protect\clearpage} % <--- just debug stuff, ignore
+% \include{Chapters/Chapter03}
+% %\include{multiToC} % <--- just debug stuff, ignore for your documents
+% ********************************************************************
+% Backmatter
+%*******************************************************
+\appendix
+%\renewcommand{\thechapter}{\alph{chapter}}
+\cleardoublepage
+\part{Appendix}
+\include{Chapters/Chapter0A}
+%********************************************************************
+% Other Stuff in the Back
+%*******************************************************
+\pdfbookmark[-1]{Back Matter}{back} % Dummy part bookmark for back matter
+\cleardoublepage\include{FrontBackmatter/Bibliography}
+\cleardoublepage\include{FrontBackmatter/Declaration}
+\cleardoublepage\include{FrontBackmatter/Colophon}
+% ********************************************************************
+% Game Over: Restore, Restart, or Quit?
+%*******************************************************
+\end{document}
+% ********************************************************************
