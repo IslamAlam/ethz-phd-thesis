@@ -38,6 +38,8 @@
 
 
 \usepackage{lipsum}
+\usepackage{pdfpages}
+
 % \usepackage[english]{babel}
 % \usepackage[parts=false]{./classicthesis/classicthesis} % ,manychapters
 %\usepackage[osf]{libertine}
@@ -67,6 +69,14 @@
 \pagenumbering{roman}
 \pagestyle{plain}
 % \pagestyle{scrplain}
+
+
+%********************************************************************
+% Coverpage
+%*******************************************************
+\includepdf[pages={1,{}}]{cover/crop/cover_front.pdf}
+\cleardoublepage\setcounter{page}{1}
+
 %********************************************************************
 % Frontmatter
 %*******************************************************
