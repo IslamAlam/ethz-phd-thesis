@@ -1,7 +1,7 @@
 % **************************************************************************************************************
 \RequirePackage{silence} % :-\
     \WarningFilter{scrreprt}{Usage of package `titlesec'}
-    %\WarningFilter{scrreprt}{Activating an ugly workaround}
+    \WarningFilter{scrreprt}{Activating an ugly workaround}
     \WarningFilter{titlesec}{Non standard sectioning command detected}
 \documentclass[ twoside,openright,titlepage,numbers=noenddot,%1headlines,
                 headinclude,footinclude,cleardoublepage=empty,abstract=on,
@@ -16,6 +16,27 @@
 \input{preamble/general}
 
 % \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+
+% Languages
+% \usepackage[main=english,ngerman]{babel}
+
+% classicthesis setup
+% \PassOptionsToPackage{%
+%   %drafting,%
+%   %dottedtoc,%
+%   eulerchapternumbers,
+%   %listings,%
+%   %parts,%
+%   floatperchapter, pdfspacing,%
+%   beramono,%
+%   %minionprospacing,
+%   %subfig,%
+%   %eulermath,%
+%   a5paper,%
+% }{classicthesis}
+
+
 \usepackage{lipsum}
 % \usepackage[english]{babel}
 % \usepackage[parts=false]{./classicthesis/classicthesis} % ,manychapters
@@ -24,8 +45,10 @@
 %********************************************************************
 % Bibliographies
 %*******************************************************
-\addbibresource{Bibliography.bib}
-\addbibresource[label=ownpubs]{AMiede_Publications.bib}
+% Bibliography
+\addbibresource[label=ownpubs]{ownpubs.bib}
+\addbibresource{bibliography.bib}
+\addbibresource{misc.bib}
 
 %********************************************************************
 % Hyphenation
@@ -38,12 +61,12 @@
 \begin{document}
 \frenchspacing
 \raggedbottom
-\selectlanguage{american} % american ngerman
+% \selectlanguage{american} % american ngerman
 %\renewcommand*{\bibname}{new name}
 %\setbibpreamble{}
 \pagenumbering{roman}
-% \pagestyle{plain}
-\pagestyle{scrplain}
+\pagestyle{plain}
+% \pagestyle{scrplain}
 %********************************************************************
 % Frontmatter
 %*******************************************************
