@@ -5,7 +5,11 @@
     \WarningFilter{titlesec}{Non standard sectioning command detected}
 \documentclass[ twoside,openright,titlepage,numbers=noenddot,%1headlines,
                 headinclude,footinclude,cleardoublepage=empty,abstract=on,
-                BCOR=5mm,paper=a5,fontsize=11pt
+                BCOR=5.5mm, paper=a5, fontsize=10pt,% A5 soft cover
+                % BCOR=5mm,paper=a4,fontsize=11pt,%11pt,a4paper,%
+                %BCOR=5.5mm, paper=17cm:24cm, fontsize=10pt,% 17 cm x 24 cm
+                %BCOR=5mm, paper=15.59cm:23.39cm, fontsize=10pt,% Royal soft cover
+                %BCOR=0mm, paper=15.24cm:22.86cm, fontsize=10pt,% US-Trade hard cover
                 ]{scrreprt}
 % \documentclass[11pt,paper=a5,footinclude,headinclude]{scrbook} % KOMA-Script book
 
@@ -110,7 +114,6 @@
 \cleardoublepage
 \include{chapters/introduction/main}
 
-
 \cleardoublepage%
 \def\dir{chapters/sample-chapter}
 \include{\dir/main}
@@ -139,13 +142,20 @@
 % ********************************************************************
 % Backmatter
 %*******************************************************
-\appendix
+% \appendix
 %\renewcommand{\thechapter}{\alph{chapter}}
 % \cleardoublepage
 % \part{Appendix}
 % \include{Chapters/Chapter0A}
+% \cleardoublepage%
+% \def\dir{chapters/appendix}
+% \include{\dir/main}
+
+% Appendices
+
+\appendix
 \cleardoublepage%
-\def\dir{chapters/appendix}
+\def\dir{chapters/99-A-appendix}
 \include{\dir/main}
 
 %********************************************************************
@@ -163,6 +173,8 @@
 \cleardoublepage\include{frontbackmatter/cv}
 \cleardoublepage\include{frontbackmatter/publications}
 
+
+\includepdf[pages={1,{}}]{cover/crop/cover_front.pdf}
 
 % ********************************************************************
 % Game Over: Restore, Restart, or Quit?
