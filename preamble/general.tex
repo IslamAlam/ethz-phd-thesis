@@ -1,5 +1,22 @@
+% preamble/general.tex
+% ------------------------------------------------------------------
+% General Preamble Settings
+%
+% This file loads general configuration files for your document.
+% It includes meta information and ETH corporate colour definitions.
+%
+% Files referenced:
+%   - preamble/meta.tex  : Contains meta data (titles, author info, etc.)
+%   - preamble/eth.tex   : Contains ETH corporate colour definitions
+%
+% Include this file in your main document preamble:
+%   \input{preamble/general.tex}
+% ------------------------------------------------------------------
+
 % File encoding
 % \usepackage[utf8]{inputenc}
+
+\input{preamble/eth.tex}  % Load ETH corporate colours and shade definitions
 
 % Languages
 \usepackage[main=english,ngerman]{babel}

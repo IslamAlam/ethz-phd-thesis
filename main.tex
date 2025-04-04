@@ -106,8 +106,21 @@
 \pagenumbering{arabic}
 %\setcounter{page}{90}
 % use \cleardoublepage here to avoid problems with pdfbookmark
+
 \cleardoublepage
 \include{chapters/introduction/main}
+
+
+\cleardoublepage%
+\def\dir{chapters/sample-chapter}
+\include{\dir/main}
+
+% Include some blind text
+\Blinddocument
+
+\cleardoublepage%
+\def\dir{chapters/conclusion_outlook}
+\include{\dir/main}
 
 % \part{Some Kind of Manual}\label{pt:manual}
 % \include{Chapters/Chapter01}
@@ -128,16 +141,29 @@
 %*******************************************************
 \appendix
 %\renewcommand{\thechapter}{\alph{chapter}}
-\cleardoublepage
-\part{Appendix}
-\include{Chapters/Chapter0A}
+% \cleardoublepage
+% \part{Appendix}
+% \include{Chapters/Chapter0A}
+\cleardoublepage%
+\def\dir{chapters/appendix}
+\include{\dir/main}
+
 %********************************************************************
 % Other Stuff in the Back
 %*******************************************************
 \pdfbookmark[-1]{Back Matter}{back} % Dummy part bookmark for back matter
-\cleardoublepage\include{FrontBackmatter/Bibliography}
-\cleardoublepage\include{FrontBackmatter/Declaration}
-\cleardoublepage\include{FrontBackmatter/Colophon}
+% \cleardoublepage\include{FrontBackmatter/Bibliography}
+% \cleardoublepage\include{FrontBackmatter/Declaration}
+% \cleardoublepage\include{FrontBackmatter/Colophon}
+
+\cleardoublepage\include{frontbackmatter/bibliography}
+
+\bookmarksetup{startatroot}
+%\pagenumbering{gobble}
+\cleardoublepage\include{frontbackmatter/cv}
+\cleardoublepage\include{frontbackmatter/publications}
+
+
 % ********************************************************************
 % Game Over: Restore, Restart, or Quit?
 %*******************************************************
