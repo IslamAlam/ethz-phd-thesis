@@ -13,6 +13,21 @@
 %   \input{preamble/general.tex}
 % ------------------------------------------------------------------
 
+\usepackage{textcase}
+\usepackage{xparse}
+\usepackage{setspace}
+\usepackage{tikzpagenodes}
+\usepackage[LabelsAligned]{currvita} % nice cv style
+\usepackage{ifthen}
+\usepackage{import}
+\usepackage{subfiles}
+
+\usepackage{seqsplit, caption, subcaption} %for table spacing to second row
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{placeins} % add this in your preamble
+\usepackage{pdflscape} % rotates the page content
+
 % File encoding
 % \usepackage[utf8]{inputenc}
 
@@ -80,7 +95,7 @@
 \setlength{\extrarowheight}{3pt}
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering}
-\usepackage{floatrow}
+% \usepackage{floatrow}
 \usepackage{caption}
 \captionsetup{format=hang,font=small,labelfont={sc},margin=5pt}
 \usepackage{subcaption}

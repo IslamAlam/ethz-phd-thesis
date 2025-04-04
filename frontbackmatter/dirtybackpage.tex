@@ -1,0 +1,18 @@
+% frontbackmatter/dirtytitlepage.tex
+
+\begingroup
+% Define the cover font locally. Make sure Alegreya is installed in your system.
+\newfontfamily{\coverfont}{Alegreya}%
+%
+% Now, apply \coverfont only to the cover page content.
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+  % 1) Fill the entire page with the background color
+  \fill[ETHBlue] (current page.south west) rectangle (current page.north east);
+
+
+\end{tikzpicture}
+\endgroup
+% \cleardoublepage

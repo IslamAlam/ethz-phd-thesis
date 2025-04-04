@@ -1,12 +1,48 @@
-%*******************************************************
-% Little Dirty Titlepage
-%*******************************************************
-\thispagestyle{empty}
-%*******************************************************
-\begin{center}
-    \spacedlowsmallcaps{\myName} \\ \medskip                        
+% frontbackmatter/dirtytitlepage.tex
 
-    \begingroup
-        \color{chapter-color}\spacedallcaps{\myTitle}
-    \endgroup
-\end{center}        
+\begingroup
+% Define the cover font locally. Make sure Alegreya is installed in your system.
+\newfontfamily{\coverfont}{Alegreya}%
+%
+% Now, apply \coverfont only to the cover page content.
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+  % 1) Fill the entire page with the background color
+  \fill[ETHBlue] (current page.south west) rectangle (current page.north east);
+
+
+  % 2) Top-left text block: author and main title
+  \node[
+    anchor=north west,
+    align=left,
+    text=white
+  ]
+  at ([xshift=2cm,yshift=-2cm]current page.north west)
+  {\coverfont
+    \begin{minipage}{\textwidth}
+        \begin{spacing}{1.5}
+            \hyphenpenalty=10000
+            \exhyphenpenalty=10000
+            {\Large \myName\hfill}\\[2em]
+
+            {\bfseries\Huge \myTitle}\\[1em]
+            {\bfseries\LARGE \mySubtitle}
+        \end{spacing}
+    \end{minipage}
+  };
+
+  % 3) Bottom-left text block: dissertation info
+  \node[
+    anchor=south west,
+    align=left,
+    text=white
+  ]
+  at ([xshift=2cm,yshift=2cm]current page.south west)
+  {
+    {\large Diss. ETH No. \myDissNumber}
+  };
+\end{tikzpicture}
+\endgroup
+\cleardoublepage
